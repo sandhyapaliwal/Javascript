@@ -1,0 +1,76 @@
+<html> <head> 
+    <style> 
+    .error{ 
+        color: red;
+    } 
+     </style>
+</head>
+<form align="center" action="" onsubmit="return validateform()"> 
+    Name: <input type="text" placeholder="username" id="username"><br> 
+    <p id="12" class="error"></p>
+    <p id="14" class="error"></p>
+    <br>Password: <input type="password" placeholder="password" id="password"><br> 
+    <p id="13" class="error"></p>
+    Email: <input type="email" placeholder="email" id="email"><br> 
+    <p id="15" class="error"></p>
+    <p id="16" class="error"></p>
+    <br><input type="submit">
+</form>
+ <script> 
+let username=document.getElementById("username");
+let password=document.getElementById("password");
+let email=document.getElementById("email");
+let flag=1;
+function validateform(){   
+    var pattern = /^[A-Za-z ]+$/;
+    var emaileg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (username.value.match(pattern)){ 
+        document.getElementById("14").innerHTML = "Valid Name";
+        flag=1;
+    }else  if(username.value != "") { 
+        document.getElementById("14").innerHTML = "InValid Name";
+        flag=0;
+    }
+   if  (username.value == ""){ 
+        document.getElementById("12").innerHTML = "user name is empty"; 
+        flag=0;
+    } else if (username.value.length < 6){ 
+        document.getElementById("12").innerHTML = "user name require 6 character"; 
+        flag=0;
+    } else{ 
+        document.getElementById("12").innerHTML = ""; 
+        flag=1;
+    }
+    if(password.value == ""){ 
+        document.getElementById("13").innerHTML = "password is empty";
+        flag=0;
+    } else if(password.value.length < 6){ 
+        document.getElementById("13").innerHTML = "password require 6 character";
+        flag=0;
+    }else{ 
+        document.getElementById("13").innerHTML = ""; 
+        flag=1;
+    }
+    if(email.value == ""){ 
+        document.getElementById("15").innerHTML = "email is empty";
+        flag=0;
+    }else{ 
+        document.getElementById("15").innerHTML = ""; 
+        flag=1;
+    }
+    if (email.value.match(emaileg)){ 
+        document.getElementById("16").innerHTML = "Valid email"; 
+        flag=1;
+    }else if(email.value != ""){ 
+        document.getElementById("16").innerHTML = "InValid email"; 
+        flag=0;
+    }
+
+   if(flag){ 
+return true;
+   }else{ 
+return false;
+   }
+}
+</script> 
+</html>
