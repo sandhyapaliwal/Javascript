@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>async code</h1>
+    <button id="stop">stop</button>
+
+</body>
+<script>
+const sndhya= function(){ 
+        console.log('hiii');
+    } 
+   const stopsettime= setTimeout(sndhya,2000);//functiin reference dedo.
+   document.querySelector('#stop').addEventListener('click', function(e){ 
+        clearTimeout(stopsettime);
+        console.log('stopped');
+    });
+   clearTimeout(stopsettime);
+
+</script>
+</html>
