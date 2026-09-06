@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body style="background-color: pink; ">
+    <ul class="language">
+        <li>html</li>
+
+    </ul> 
+</body>
+<script>
+    function addLanguage(langname){
+       const li= document.createElement('li'); //imaginary li create ki h
+       li.innerHTML=`${langname}`;//li ka content set kiya
+       document.querySelector('.language').appendChild(li);//appendChild li ko ul.language mein add kiya
+
+     }
+     addLanguage('python')
+     addLanguage('javascript')
+//li do baar  declare kr pare h kyunki li ka scope upar wale function tak hi h
+//neeche wala optimized h kyunki innerhtml mein pura tree parse hota h jbki createtextnode jyada optimized h
+
+     function addOptiLanguage(langname){ 
+       const li=  document.createElement('li') ;
+    li.appendchild(document.createTextNode(langname));
+    document.querySelector('.language').appendChild(li);
+    }
+    addOptiLanguage('java');
+    addOptiLanguage('c++');
+        
+    //value edit
+    const secondlang=document.querySelector('li:nth-child(2)')//nth-child(2) ka matlab:parent ka second child
+   // secondlang.innerHTML='mojo'
+    const newli= document.createElement('li');
+    newli.textContent='mojo'
+    secondlang.replaceWith(newli);
+
+//edit 
+ const firstlang=document.querySelector('li:first-child')
+ firstlang.outerHTML='<li>typescript</li>'
+
+//remove
+const lastlang=document.querySelector('li:last-child')
+lastlang.remove();
+</script>
+</html>

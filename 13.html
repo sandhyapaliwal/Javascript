@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sttributes example</title>
+</head>
+<body>
+    <button id="btn">click me</button>
+    <script> 
+   const btn=  document.querySelector('#btn');
+   btn.setAttribute('data-id','5'); //add kia
+   console.log(btn.getAttribute('data-id'));//read 5
+//add classes
+btn.classList.add('active');
+console.log(btn.className);//active
+console.log(btn.classList.contains('active'));//true
+//remove clases
+btn.classList.remove('active');
+console.log(btn.className);//''
+console.log(btn.classList.contains('active'));//false
+//toggle
+// 6. Toggle
+btn.classList.toggle("active");
+console.log(btn.className); // active
+
+btn.classList.toggle("active");
+console.log(btn.className); // ""
+// 7. Attribute remove karna
+btn.removeAttribute("data-id");
+
+    </script>
+</body>
+</html>
